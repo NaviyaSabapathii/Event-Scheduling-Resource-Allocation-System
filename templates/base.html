@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Scheduler</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f0f2f5; color: #333; }
+        nav { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav a { margin-right: 20px; text-decoration: none; color: #007bff; font-weight: bold; }
+        .flash-messages { margin-bottom: 20px; }
+        .flash { padding: 15px; background: #ffcccc; color: #900; border: 1px solid #ebccd1; border-radius: 4px; }
+        .success { background: #dff0d8; color: #3c763d; border-color: #d6e9c6; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: #007bff; color: white; }
+        form { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 600px; }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select, textarea { margin-top: 5px; width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; background: #28a745; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #218838; }
+        .edit-link { color: #007bff; text-decoration: none; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/"> Events</a>
+        <a href="/resources"> Resources</a>
+        <a href="/events/add">Create Event</a>
+        <a href="/report"> Utilisation Report</a>
+    </nav>
+
+    <div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <div class="flash">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+    </div>
+    
+    {% block content %}{% endblock %}
+</body>
+</html>

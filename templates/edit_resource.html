@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Resource</h2>
+<form method="POST">
+    <label>Resource Name</label>
+    <input type="text" name="name" value="{{ resource.resource_name }}" required>
+    
+    <label>Resource Type</label>
+    <select name="type">
+        <option value="room" {% if resource.resource_type == 'room' %}selected{% endif %}>Room</option>
+        <option value="instructor" {% if resource.resource_type == 'instructor' %}selected{% endif %}>Instructor</option>
+        <option value="equipment" {% if resource.resource_type == 'equipment' %}selected{% endif %}>Equipment</option>
+    </select>
+    
+    <button type="submit">Update Resource</button>
+    <a href="/resources" style="margin-left: 15px; color: #666;">Cancel</a>
+</form>
+{% endblock %}

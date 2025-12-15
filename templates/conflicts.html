@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="error">
+    <h2>Resource Conflict Detected</h2>
+    <p>One or more of the selected resources are already booked for another event during this time window[cite: 33, 34].</p>
+</div>
+<p>Please check the start/end times or choose different resources.</p>
+<a href="/events/add">Go Back to Form</a>
+{% endblock %}

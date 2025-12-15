@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2> Event Schedule</h2>
+    <a href="/events/add" style="background: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;">+ New Event</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Event Title</th>
+            <th>Date & Time</th>
+            <th>Allocated Resources</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+        <tr>
+            <td><strong>{{ event.title }}</strong></td>
+            <td>
+                {{ event.start_time.strftime('%b %d, %Y') }}<br>
+                <small>{{ event.start_time.strftime('%I:%M %p') }} - {{ event.end_time.strftime('%I:%M %p') }}</small>
+            </td>
+            <td>
+                {% if event.allocations %}
+                    {% for alloc in event.allocations %}
+                        <span style="display: inline-block; background: #e9ecef; padding: 2px 8px; border-radius: 12px; font-size: 0.85em; margin: 2px;">
+                            {{ alloc.resource.resource_name }}
+                        </span>
+                    {% endfor %}
+                {% else %}
+                    <span style="color: #999; font-style: italic;">No resources assigned</span>
+                {% endif %}
+            </td>
+            <td><small>{{ event.description[:50] }}{% if event.description|length > 50 %}...{% endif %}</small></td>
+            <td>
+                <a href="/events/edit/{{ event.event_id }}" class="edit-link">✏️ Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

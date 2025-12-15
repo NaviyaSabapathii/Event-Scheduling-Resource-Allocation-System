@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+    <h2>Manage Resources</h2>
+</div>
+
+<h3>Add New Resource</h3>
+<form method="POST" style="margin-bottom: 40px;">
+    <label>Resource Name</label>
+    <input type="text" name="name" placeholder="e.g., Conference Room A, Projector" required>
+    
+    <label>Resource Type</label>
+    <select name="type" required>
+        <option value="">Select type...</option>
+        <option value="room">Room</option>
+        <option value="instructor">Instructor</option>
+        <option value="equipment">Equipment</option>
+    </select>
+    
+    <button type="submit">Add Resource</button>
+</form>
+
+<h3>Existing Resources</h3>
+{% if resources %}
+<table>
+    <thead>
+        <tr>
+            <th>Resource Name</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for resource in resources %}
+        <tr>
+            <td><strong>{{ resource.resource_name }}</strong></td>
+            <td><span style="text-transform: capitalize;">{{ resource.resource_type }}</span></td>
+            <td>
+                <a href="/resources/edit/{{ resource.resource_id }}" class="edit-link">✏️ Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="color: #999; font-style: italic;">No resources added yet. Add your first resource above.</p>
+{% endif %}
+{% endblock %}

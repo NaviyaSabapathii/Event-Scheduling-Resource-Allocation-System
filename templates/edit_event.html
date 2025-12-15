@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Event: {{ event.title }}</h2>
+<form method="POST">
+    <label>Event Title</label>
+    <input type="text" name="title" value="{{ event.title }}" required>
+    
+    <label>Start Time</label>
+    <input type="datetime-local" name="start_time" value="{{ event.start_time.strftime('%Y-%m-%dT%H:%M') }}" required>
+    
+    <label>End Time</label>
+    <input type="datetime-local" name="end_time" value="{{ event.end_time.strftime('%Y-%m-%dT%H:%M') }}" required>
+    
+    <label>Description</label>
+    <textarea name="description">{{ event.description }}</textarea>
+    
+    <h3>Resources</h3>
+    <div style="background: #f4f4f4; padding: 15px; border-radius: 5px;">
+        {% for r in resources %}
+        <label style="display: flex; align-items: center; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+            <input type="checkbox" name="resources" value="{{ r.resource_id }}" 
+            {% if r.resource_id in current_res_ids %}checked{% endif %}
+            style="width: auto; margin-right: 10px;">
+            <span><strong>{{ r.resource_name }}</strong> <span style="color: #666;">({{ r.resource_type }})</span></span>
+        </label>
+        {% endfor %}
+    </div>
+    
+    <button type="submit">Save Changes</button>
+    <a href="/" style="margin-left:10px; text-decoration: none; color: #666;">Cancel</a>
+</form>
+{% endblock %}

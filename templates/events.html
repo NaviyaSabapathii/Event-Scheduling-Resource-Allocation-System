@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create New Event</h2>
+
+<form method="POST">
+    <label>Event Title</label>
+    <input type="text" name="title" placeholder="Workshop / Seminar Name" required>
+    
+    <label>Start Time</label>
+    <input type="datetime-local" name="start_time" required>
+    
+    <label>End Time</label>
+    <input type="datetime-local" name="end_time" required>
+    
+    <label>Description</label>
+    <textarea name="description" placeholder="Brief details about the event..."></textarea>
+    
+    <h3>Allocate Resources</h3>
+    <div style="background: #f4f4f4; padding: 15px; border-radius: 5px; margin-bottom: 10px;">
+        {% for r in resources %}
+        <label style="display: flex; align-items: center; margin-bottom: 10px; font-weight: normal; cursor: pointer;">
+            <input type="checkbox" name="resources" value="{{ r.resource_id }}" style="width: auto; margin-right: 10px;"> 
+            <span><strong>{{ r.resource_name }}</strong> <span style="color: #666;">({{ r.resource_type }})</span></span>
+        </label>
+        {% endfor %}
+    </div>
+    
+    <button type="submit">Schedule Event</button>
+</form>
+{% endblock %}
