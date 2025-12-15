@@ -18,6 +18,11 @@ SCREENSHOTS:
 
 <img width="1920" height="1008" alt="Screenshot 2025-12-15 202638" src="https://github.com/user-attachments/assets/5e7f0273-f921-4eb8-9423-c42182449418" />
 
+The below image shows the conflict:
+<img width="1920" height="1008" alt="Screenshot 2025-12-15 224952" src="https://github.com/user-attachments/assets/ec1bf3d9-63f1-471a-ae0c-ea1d9aded633" />
+
+
+
 
 
 https://github.com/user-attachments/assets/6f45ae51-0bf6-4a51-a841-bb6eb4ca4067
