@@ -1,1 +1,14 @@
-# Event-Scheduling-Resource-Allocation-System
+Project Overview:
+-Scheduling System: Built a Flask app to manage events (workshops, seminars) and shared resources (rooms, instructors).
+-Relational Database: Designed a structured database with proper relationships between Events, Resources, and Allocations.
+
+Core Features:
+-Conflict Detection: Implemented logic to prevent double-booking and handle overlapping time slots or nested intervals.
+-Utilisation Reports: Added a tool to calculate total usage hours and list upcoming bookings for any selected date range.
+-Full CRUD Support: Developed clean forms to add, edit, and view all system records.
+<img width="1920" height="1008" alt="Screenshot 2025-12-15 202447" src="https://github.com/user-attachments/assets/50092fea-58e7-47fe-8fde-d6fc4d339334" />
+<img width="1920" height="1008" alt="Screenshot 2025-12-15 202523" src="https://github.com/user-attachments/assets/0158d960-8371-41ea-a4ae-54ce5f965ecc" />
+<img width="1920" height="1008" alt="Screenshot 2025-12-15 202604" src="https://github.com/user-attachments/assets/dcda1648-f393-4b9d-824b-2b2142112![Uploading Screenshot 2025-12-15 202604.png…]()
+94b" />
+<img width="1920" height="1008" alt="Screenshot 2025-12-15 202638" src="https://github.com/user-attachments/assets/5e7f0273-f921-4eb8-9423-c42182449418" />
+
